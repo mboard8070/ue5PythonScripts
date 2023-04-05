@@ -7,7 +7,7 @@ pointLight = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.PointLight,
 pointLight.set_actor_label("key_light")
 
 
-# Function to find the first point light actor in the scene
+# Function to find the light actor by label name. The label name is what you name the light in the editor
 def find_point_light_actor_by_label(label):
     actors = unreal.EditorLevelLibrary.get_all_level_actors()
     for actor in actors:
