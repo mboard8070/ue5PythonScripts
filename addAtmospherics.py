@@ -1,4 +1,7 @@
 import unreal
+
+
+
 #This script adds all atmosphere related actors to a scene
 actorLocation = unreal.Vector(0, 0, 0)
 actorRotation = unreal.Rotator(0, 0, 0)
