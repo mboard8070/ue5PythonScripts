@@ -14,6 +14,7 @@ dirLight = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.DirectionalLi
 skyLight = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.SkyLight, actorLocation)
 sky = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.SkyAtmosphere, actorLocation)
 fog = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.ExponentialHeightFog, actorLocation)
+clouds = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.VolumetricCloud, actorLocation)
 # set the actor's rotation
 #dirLight.set_actor_rotation(actorRotation, False)
 

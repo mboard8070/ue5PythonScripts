@@ -29,6 +29,7 @@ ormTextureParam.rename("ORM")
 #Create Material Instance
 stackedMatInstance = AssetTools.create_asset("masterMatStacked_ORM_Inst", "/Game/masterMaterials", unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
 MaterialEditLibrary.set_material_instance_parent(stackedMatInstance, masterMaterialStacked)
+stackedMatInstance.set_editor_property("Parent", masterMaterialStacked)
 MaterialEditLibrary.update_material_instance(stackedMatInstance)
 
 
