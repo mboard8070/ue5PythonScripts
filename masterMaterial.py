@@ -22,6 +22,7 @@ MaterialEditingLibrary.connect_material_property(specScalarParameter, "", unreal
 
 normalTextureParameter = MaterialEditingLibrary.create_material_expression(masterMaterial, unreal.MaterialExpressionTextureSampleParameter, -125, 100)
 normalTextureParameter.set_editor_property("Parameter_Name", "Normal")
+normalTextureParameter.set_editor_property("SamplerType", "Normal")
 MaterialEditingLibrary.connect_material_property(normalTextureParameter, "RGB", unreal.MaterialProperty.MP_NORMAL)
 
 metalTextureParameter = MaterialEditingLibrary.create_material_expression(masterMaterial, unreal.MaterialExpressionTextureSampleParameter, -125, 100)
@@ -29,6 +30,7 @@ metalTextureParameter.set_editor_property("Parameter_Name", "Metal")
 MaterialEditingLibrary.connect_material_property(metalTextureParameter, "RGB", unreal.MaterialProperty.MP_METALLIC)
 
 aOTextureParameter = MaterialEditingLibrary.create_material_expression(masterMaterial, unreal.MaterialExpressionTextureSampleParameter, -125, 100)
+aOTextureParameter.set_editor_property("Parameter_Name", "AO")
 MaterialEditingLibrary.connect_material_property(aOTextureParameter, "RGB", unreal.MaterialProperty.MP_AMBIENT_OCCLUSION)
 
 #Match Directory Path at top it isn't the same right now

@@ -17,6 +17,7 @@ MaterialEditLibrary.connect_material_property(specParam, "", unreal.MaterialProp
 
 #Create 2D Texture Param and Connect to Normal
 normalTextureParam = MaterialEditLibrary.create_material_expression(masterMaterialStacked, unreal.MaterialExpressionTextureSampleParameter2D, -384, -200)
+normalTextureParam.set_editor_property("Parameter_Name", "Normal")
 MaterialEditLibrary.connect_material_property(normalTextureParam, "RGB", unreal.MaterialProperty.MP_NORMAL)
 
 #Create 2D Texture Param and Connect to Occlusion, Roughness, and Metallic
