@@ -218,4 +218,12 @@ def main():
 # Method to run the script
 main()
 
+#Create Material Instance
+MeshPaintInstance = AssetTools.create_asset("MeshPaintInstance", "/Game/masterMaterials", unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
+MaterialEditLibrary.set_material_instance_parent(MeshPaintInstance, MeshMaterial)
+MeshPaintInstance.set_editor_property("Parent", MeshMaterial)
+MaterialEditLibrary.update_material_instance(MeshPaintInstance)
 
+
+EditorAssetLibrary.save_asset("/Game/masterMaterials/MeshPaint", True)
+EditorAssetLibrary.save_asset("/Game/masterMaterials/MeshPaintInstance", True)
