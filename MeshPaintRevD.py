@@ -176,8 +176,6 @@ MaterialEditLibrary.connect_material_expressions(orm_g_lerps[3], '', orm_g_lerps
 
 # Connect last Lerp to the Base Color Channel of the Material
 MaterialEditLibrary.connect_material_property(orm_g_lerps[4], '', unreal.MaterialProperty.MP_ROUGHNESS)
-return
-
 
 # Connect Texture Parameters to Lerps
 MaterialEditLibrary.connect_material_expressions(orms[0], 'B', orm_b_lerps[0], 'B')
