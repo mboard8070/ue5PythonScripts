@@ -11,6 +11,12 @@ base_colors = []
 normals = []
 orms = []
 
+"""
+#Create Tiling Nodes
+#Create Texture Coordinate nodes for each surface
+TC_SurfaceA = MaterialEditLibrary.create_material_expression(MeshMaterial, unreal.MaterialExpressionTextureCoordinate.static_class(), -800, -600)
+TC_SurfaceB = MaterialEditLibrary.create_material_expression(MeshMaterial, unreal.MaterialExpressionTextureCoordinate.static_class(), -800, -500)
+"""
 # Create a Vertex Color node
 VertexColorNode_Color = MaterialEditLibrary.create_material_expression(MeshMaterial, unreal.MaterialExpressionVertexColor.static_class(), -500, -300)
 VertexColorNode_Color.set_editor_property('Desc', 'Vertex Color Base_Color')
