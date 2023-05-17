@@ -4,7 +4,17 @@ AssetTools = unreal.AssetToolsHelpers.get_asset_tools()
 MaterialEditLibrary = unreal.MaterialEditingLibrary
 EditorAssetLibrary = unreal.EditorAssetLibrary
 
-MeshMaterial = AssetTools.create_asset("M_MeshPaint", "/Game/masterMaterials", unreal.Material, unreal.MaterialFactoryNew())
+AssetPath = "/Game/masterMaterials/M_MeshPaint"
+
+# check if the material exists
+if EditorAssetLibrary.do_assets_exist(AssetPath):
+    #If it does make a copy
+    NewAssetPath = "/Game/masterMaterials/M_MeshPaint_Copy"
+    EditorAssetLibrary.duplicate_asset(AssetPath, NewAssetPath)
+    MeshMaterial = EditorAssetLibrary.load_asset(NewAssetPath)
+else:
+    #if it doesn't create a new one
+    MeshMaterial = AssetTools.create_asset("M_MeshPaint", "/Game/masterMaterials", unreal.Material, unreal.MaterialFactoryNew())
 
 # Add texture parameter nodes for each surface
 base_colors = []
