@@ -19,27 +19,19 @@ def create_spline_mesh_blueprint():
     spline_component = blueprint_generated_class.add_component_uninitialized("SplineComponent", "/Script/Engine.SplineComponent")
     spline_component.set_editor_property("Mobility", unreal.ComponentMobility.STATIC)
 
-    # Add a Spline Mesh Component to the Blueprint
-    unreal.log("Adding Spline Mesh Component to Blueprint...")
-    spline_mesh_component = blueprint_generated_class.add_component_uninitialized("SplineMeshComponent", "/Script/Engine.SplineMeshComponent")
-    spline_mesh_component.set_editor_property("Mobility", unreal.ComponentMobility.STATIC)
+    # Create an array of public variables to define the meshes
+    meshes_to_spawn = ["Mesh1", "Mesh2", "Mesh3", "Mesh4", "Mesh5", "Mesh6", "Mesh7", "Mesh8", "Mesh9", "Mesh10",
+                       "Mesh11", "Mesh12", "Mesh13", "Mesh14", "Mesh15", "Mesh16", "Mesh17", "Mesh18", "Mesh19", "Mesh20"]
 
-    # Set the Spline Mesh Component properties
-    spline_mesh_component.set_editor_property("ForwardAxis", unreal.ESplineMeshAxis.Z)
-    spline_mesh_component.set_editor_property("CollisionEnabled", unreal.SplineMeshCollisionEnabledType.NO_COLLISION)
-
-    # Create an array of meshes to spawn along the spline
-    meshes_to_spawn = ["/Game/Meshes/Mesh1", "/Game/Meshes/Mesh2", "/Game/Meshes/Mesh3",
-                       "/Game/Meshes/Mesh4", "/Game/Meshes/Mesh5", "/Game/Meshes/Mesh6",
-                       "/Game/Meshes/Mesh7", "/Game/Meshes/Mesh8", "/Game/Meshes/Mesh9",
-                       "/Game/Meshes/Mesh10", "/Game/Meshes/Mesh11", "/Game/Meshes/Mesh12",
-                       "/Game/Meshes/Mesh13", "/Game/Meshes/Mesh14", "/Game/Meshes/Mesh15",
-                       "/Game/Meshes/Mesh16", "/Game/Meshes/Mesh17", "/Game/Meshes/Mesh18",
-                       "/Game/Meshes/Mesh19", "/Game/Meshes/Mesh20"]
-
-    # Iterate over the meshes and add them to the Spline Mesh Component
-    for mesh_path in meshes_to_spawn:
-        spline_mesh_component.add_spline_mesh_point(mesh_path)
+    # Iterate over the public variables and add them as public Static Mesh Components to the Blueprint
+    for mesh_name in meshes_to_spawn:
+        mesh_component = blueprint_generated_class.add_component_uninitialized("StaticMeshComponent", "/Script/Engine.StaticMeshComponent")
+        mesh_component.set_editor_property("Mobility", unreal.ComponentMobility.STATIC)
+        mesh_variable_name = "Mesh_" + mesh_name
+        mesh_variable_path = "Meshes." + mesh_variable_name
+        mesh_component.set_editor_property("StaticMesh", unreal.EditorAssetLibrary.get_editor_property(blueprint_generated_class, mesh_variable_path))
+        mesh_component.set_editor_property("CollisionEnabled", unreal.CollisionEnabledType.NO_COLLISION)
+        spline_component.add_instance_component(mesh_component)
 
     # Save the Blueprint
     unreal.log("Saving Blueprint...")
