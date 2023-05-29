@@ -2,7 +2,7 @@ import unreal
 levelTools = unreal.Level
 editorLevelLibrary = unreal.EditorLevelLibrary
 levelSubSys = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
-levelTools = unreal.level
+#levelTools = unreal.level
 
 
 #init new level

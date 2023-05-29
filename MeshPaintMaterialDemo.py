@@ -3,8 +3,18 @@ import unreal
 AssetTools = unreal.AssetToolsHelpers.get_asset_tools()
 MaterialEditLibrary = unreal.MaterialEditingLibrary
 EditorAssetLibrary = unreal.EditorAssetLibrary
+"""
+AssetPath = "/Game/MasterMaterials/M_Meshpaint"
 
-#Create New Material
+# Check if the Material Exists
+if EditorAssetLibrary.do_assets_exist(AssetPath):
+    #If asset exists, make a copy
+    NewAssetPath = "/Game/MasterMaterials/M_MeshPaint_Copy"
+    EditorAssetLibrary.duplicate_asset(AssetPath, NewAssetPath)
+    MeshPaintMaterial = EditorAssetLibrary.load_asset(NewAssetPath)
+else:
+    #If Asset does not exist, create a new material
+    """
 MeshPaintMaterial = AssetTools.create_asset("M_MeshPaint", "/Game/MasterMaterials", unreal.Material, unreal.MaterialFactoryNew())
 
 #Add texture params for each surface

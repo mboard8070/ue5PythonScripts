@@ -1,13 +1,9 @@
 import unreal
 
-
-
 #This script adds all atmosphere related actors to a scene
 actorLocation = unreal.Vector(0, 0, 0)
 actorRotation = unreal.Rotator(0, 0, 0)
 levelSubSys = unreal.get_editor_subsystem(unreal.LevelEditorSubsystem)
-
-
 
 # create a new atmosphereic actors
 dirLight = unreal.EditorLevelLibrary.spawn_actor_from_class(unreal.DirectionalLight, actorLocation)
