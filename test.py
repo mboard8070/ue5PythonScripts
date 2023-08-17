@@ -8,6 +8,7 @@ editor_asset_lib = unreal.EditorAssetLibrary()
 asset_reg = unreal.AssetRegistryHelpers.get_asset_registry()
 assets = asset_reg.get_assets_by_path(directory_text)
 
+
 # Directory mapping
 Directory_mapping = {
     "ActorComponent": "\\Game\\Blueprints\\Components\\",
