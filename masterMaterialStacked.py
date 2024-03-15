@@ -4,7 +4,17 @@ AssetTools = unreal.AssetToolsHelpers.get_asset_tools()
 MaterialEditLibrary = unreal.MaterialEditingLibrary
 EditorAssetLibrary = unreal.EditorAssetLibrary
 
-MasterMaterialStacked = AssetTools.create_asset("M_Master_Stacked", "/Game/MasterMaterials", unreal.Material, unreal.MaterialFactoryNew())
+AssetPath = "/Game/masterMaterials/MasterMaterials "
+
+# check if the material exists
+if EditorAssetLibrary.do_assets_exist(AssetPath):
+    #If it does make a copy
+    NewAssetPath = "/Game//M_Master_Stacked_Copy"
+    EditorAssetLibrary.duplicate_asset(AssetPath, NewAssetPath)
+    MeshMaterial = EditorAssetLibrary.load_asset(NewAssetPath)
+else:
+    #if it doesn't create a new one
+    MasterMaterialStacked = AssetTools.create_asset("M_Master_Stacked", "/Game/MasterMaterials", unreal.Material, unreal.MaterialFactoryNew())
 
 #Create 2D Texture Param and Connect to Base Color
 BaseColorTextureParam = MaterialEditLibrary.create_material_expression(MasterMaterialStacked, unreal.MaterialExpressionTextureSampleParameter2D, -384, -300)

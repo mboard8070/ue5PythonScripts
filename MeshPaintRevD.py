@@ -218,6 +218,7 @@ MaterialEditLibrary.connect_material_expressions(orm_b_lerps[3], '', orm_b_lerps
 # Connect last Lerp to the Base Color Channel of the Material
 MaterialEditLibrary.connect_material_property(orm_b_lerps[4], '', unreal.MaterialProperty.MP_METALLIC)
 
+EditorAssetLibrary.save_asset("/Game/masterMaterials/MeshPaint", True)
 
 #Create Material Instance
 MeshPaintInstance = AssetTools.create_asset("MeshPaintInstance", "/Game/masterMaterials", unreal.MaterialInstanceConstant, unreal.MaterialInstanceConstantFactoryNew())
